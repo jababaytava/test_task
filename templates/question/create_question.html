@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Create Test{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Create New Test</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ test_form.as_p }}
+        {{ question_formset.management_form }}
+        {% for form in question_formset %}
+            <h3>Question {{ forloop.counter }}</h3>
+            {{ form.as_p }}
+
+            <div class="form-group">
+                <label>Answers:</label>
+                {{ form.answer_formset.management_form }}
+                {% for answer_form in form.answer_formset %}
+                    <div class="form-inline">
+                        {{ answer_form.text.label }} {{ answer_form.text }}
+                        {{ answer_form.is_correct.label }} {{ answer_form.is_correct }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {{ form.non_form_errors }}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Save Test</button>
+    </form>
+</div>
+{% endblock %}

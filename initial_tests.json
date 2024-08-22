@@ -1,0 +1,91 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "testuser",
+      "password": "pbkdf2_sha256$260000$zGVnq4Dg4db9$Rg0b3iE7RMlFxIwLDZs18xvc2FT7GZdQ19M7FoVmDAk=",
+      "is_superuser": false,
+      "first_name": "Test",
+      "last_name": "User",
+      "email": "testuser@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "question.test",
+    "pk": 1,
+    "fields": {
+      "title": "Python Basics",
+      "description": "A test to check your knowledge of Python basics.",
+      "creator": 1,
+      "created_at": "2024-01-01T00:00:00Z",
+      "num_attempts": 0
+    }
+  },
+  {
+    "model": "question.test",
+    "pk": 2,
+    "fields": {
+      "title": "Django Framework",
+      "description": "A test to assess your understanding of the Django framework.",
+      "creator": 1,
+      "created_at": "2024-01-02T00:00:00Z",
+      "num_attempts": 0
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 1,
+    "fields": {
+      "test": 1,
+      "text": "What is Python?"
+    }
+  },
+  {
+    "model": "question.answer",
+    "pk": 1,
+    "fields": {
+      "question": 1,
+      "text": "A programming language",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "question.answer",
+    "pk": 2,
+    "fields": {
+      "question": 1,
+      "text": "A type of snake",
+      "is_correct": false
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 2,
+    "fields": {
+      "test": 2,
+      "text": "What does Django do?"
+    }
+  },
+  {
+    "model": "question.answer",
+    "pk": 3,
+    "fields": {
+      "question": 2,
+      "text": "It is a web framework",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "question.answer",
+    "pk": 4,
+    "fields": {
+      "question": 2,
+      "text": "It is a type of dance",
+      "is_correct": false
+    }
+  }
+]

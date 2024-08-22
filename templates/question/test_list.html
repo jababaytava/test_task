@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block title %}All Tests{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>All Tests</h2>
+    <form method="get" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" value="{{ search_query }}">
+        <select class="form-control mr-sm-2" name="filter">
+            <option value="all" {% if filter_passed == 'all' %}selected{% endif %}>All</option>
+            <option value="passed" {% if filter_passed == 'passed' %}selected{% endif %}>Passed</option>
+            <option value="not_passed" {% if filter_passed == 'not_passed' %}selected{% endif %}>Not Passed</option>
+        </select>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+    </form>
+    <hr>
+    <div>
+        {% if tests %}
+            {% for test in tests %}
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ test.title }}</h5>
+                        <p class="card-text">{{ test.description }}</p>
+                        <a href="{% url 'test_detail' test.pk %}" class="btn btn-primary">View Test</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No tests found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+{% load socialaccount %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+    <hr>
+
+    <h3>Or sign up with:</h3>
+    <div>
+        {% providers_media_js %}
+        {% for provider in socialaccount_providers %}
+            <a href="{% provider_login_url provider.id %}" class="btn btn-outline-primary">
+                Sign up with {{ provider.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

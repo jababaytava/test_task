@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Welcome to Test Platform{% endblock %}
+
+{% block content %}
+    <div class="container mt-4 text-center">
+        <h2>Welcome to Test Platform</h2>
+        <p>We hope you have a great day!</p>
+
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <a href="{% url 'profile' %}" class="btn btn-dark mt-2">View Your Profile</a>
+            <a href="{% url 'test_list' %}" class="btn btn-info mt-2">View All Tests</a>
+            <a href="{% url 'create_test' %}" class="btn btn-warning mt-2">Create a New Test</a>
+        {% endif %}
+    </div>
+{% endblock %}

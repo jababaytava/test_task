@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Test Result{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ test.title }}</h2>
+    <p>Your score: <strong>{{ score }}%</strong></p>
+    <a href="{% url 'test_list' %}" class="btn btn-primary">Back to Tests</a>
+</div>
+{% endblock %}
